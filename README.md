@@ -2,7 +2,7 @@
 
 A fun little program that destroys the lyrics of your favourite songs by using Google Translate.
 
-## First, a warning...
+## First, a warning …
 
 This repository is centred around a library called 'googletrans'. This is not authorised by Google, and so may be blocked or removed at any time.
 
