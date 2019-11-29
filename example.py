@@ -1,7 +1,7 @@
 import lyrics_translator.translator as t
 
 # From Elton John's "Your Song"
-lyrics = """
+LYRICS = """
 It's a little bit funny this feeling inside
 I'm not one of those who can easily hide, I
 Don't have much money but boy if I did
@@ -13,4 +13,4 @@ My gift is my song
 And this one's for you.
 """
 
-print(t.translate_lyrics(lyrics))
+print(t.translate_lyrics(LYRICS))
