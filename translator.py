@@ -1,25 +1,20 @@
 from googletrans.constants import LANGUAGES
 from googletrans import Translator
 
-# All languages available for Google Translate
-LANGUAGES_LIST = list(LANGUAGES.keys())
+# Keep only short versions of language names
+LANGUAGES = list(LANGUAGES.keys())
+NUM_LANGUAGES = len(LANGUAGES)
 
 T = Translator()
 
 
-# Translates the given lyrics through 'count' different languages before
-# returning to English
-def translate_lyrics(lyrics, count=35):
-    # Check that the given 'count' does not exceed the amount of languages
-    if count > len(LANGUAGES_LIST):
-        print("[ERROR]: The 'count' argument exceeds the amount of available"
-              + " languages for translation.")
-        return None
+def translate_lyrics(lyrics, lang_count=35):
+    if lang_count > NUM_LANGUAGES:
+        print(f"[WARNING]: Given language count ({lang_count}) exceeds " +
+              f"maximum number of languages ({NUM_LANGUAGES})")
+        lang_count = NUM_LANGUAGES
+        print(f"[INFO]: Using all languages for translation")
 
-    # Go through the first 'count' languages in the list
-    for language in LANGUAGES_LIST[:count]:
-        # Translate the lyrics to the current language
-        lyrics = T.translate(lyrics, src="auto",
-                             dest=language).text
-    # Finally, translate the lyrics back to English
+    for language in LANGUAGES[:lang_count]:
+        lyrics = T.translate(lyrics, dest=language).text
     return T.translate(lyrics, dest="en").text
