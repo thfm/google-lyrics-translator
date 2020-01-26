@@ -17,7 +17,7 @@ T = Translator()
 @click.option("-c", "--count", "lang_count",
               help="The number of languages to translate to before " +
               "returning to English.",
-              default=35)
+              default=5)
 def translate_lyrics(source, is_file, lang_count):
     lyrics = open(source).read() if is_file else source
     if lang_count > NUM_LANGUAGES:
