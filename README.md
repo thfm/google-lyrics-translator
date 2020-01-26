@@ -4,20 +4,44 @@ A fun little program that destroys the lyrics of your favourite songs by using G
 
 ## First, a warning …
 
-This repository is centred around a library called 'googletrans'. This is not authorised by Google, and so may be blocked or removed at any time.
+This repository is centred around a library called 'googletrans', which is not authorised by Google, and so may be blocked or removed at any time.
 
-## Download and usage
+## Download and installation
 
-In order to utilise this repository's functionality, you will need to add the `lyrics_translator` package to the source code of each project you wish to use it in.
+To start translating the lyrics of your choice into gibberish, you will need to:
 
-Then, simply import the package by calling `import lyrics_translator.translator as t` (or something similar to that). Google Lyrics Translator should now be ready for use!
+1. Download and extract the source code of this repository
+2. Navigate to the downloaded folder using a shell. Ensure that this folder contains the ```setup.py``` file
+3. Install the CLI through PIP: ```pip install .```
 
-To translate the lyrics of your choice into AI gibberish, simply type the following:
+If the installation was successful, you should be able to run ```translate --help``` in the command line, from any location, with no errors.
 
-`print(t.transate_lyrics(<lyrics>))`
+## Usage
 
-This function works by translating the lyrics into a range of different languages before returning back to English. You can optionally specify the amount of languages the function passes the lyrics through by setting the `count` parameter (the default is 35):
+### The basics
 
-`print(t.translate_lyrics(<lyrics>, count = 50))`
+This program works by translating the given lyrics into a number of different languages, before returning back to English.
 
-If you are still confused as to the usage of this repository, see the `example.py` file for a full example scenario.
+As an example, run the ```translate``` command, with a single string as it's argument:
+
+```translate "We are the champions, my friends"```
+
+After a while, the interface will print the translated result (note that this can take some time).
+
+### Sourcing from files
+
+You can optionally have the translator source lyrics from a file. To do this, use the ```-f``` flag, followed by the path to the file:
+
+```translate -f "lyrics/Your Song.txt"```
+
+### Adjusting the language count
+
+As specified earlier, the program translates text through a number of different languages. You can adjust this number, called the 'count', by supplying an integer value after ```-c``` in a translation command:
+
+```translate "Hello? It's me." -c 15```
+
+The higher the count, the less sense the resulting text will make. Higher counts will also take longer to translate.
+
+### Finally …
+
+If at any point you get stuck on the usage of this tool, you can run ```translate --help``` to see the command options with their corresponding descriptions.
