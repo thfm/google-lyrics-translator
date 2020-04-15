@@ -22,7 +22,7 @@ If the installation was successful, you should be able to run ```translate --hel
 
 This program works by translating the given lyrics into a number of different languages, before returning back to English.
 
-As an example, run the ```translate``` command, with a single string as it's argument:
+As an example, run the ```translate``` command, with a single string as its argument:
 
 ```translate "We are the champions, my friends"```
 
